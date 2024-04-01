@@ -72,13 +72,20 @@ a:hover {
   border-radius: 4px;
   font-size: large;
   font-weight: 700;
+  margin-top: 15px;
 }
 
 .form input {
+
   padding: 8px 12px;
   border: 2px black;
   outline: none;
   border-radius: 4px;
+}
+
+.descrip{
+  margin-left: 30px;
+  margin-right: auto;
 }
 
 .inputMs:hover {
