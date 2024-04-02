@@ -7,6 +7,7 @@ const startButton = document.querySelector('button');
 const input = document.querySelector('#datetime-picker');
 
 let userSelectedDate;
+let updateCounter; 
 
 startButton.disabled = true;
 
@@ -36,7 +37,7 @@ flatpickr('#datetime-picker', {
 
 startButton.addEventListener('click', () => {
   if (startButton.disabled === false) {
-    setInterval(updateDisplay, 1000);
+    updateCounter = setInterval(updateDisplay, 1000);
     startButton.disabled = true;
     input.disabled = true;
   }
@@ -51,12 +52,12 @@ function updateDisplay() {
     return;
   }
   const { days, hours, minutes, seconds } = convertMs(remainingTime);
-  const addTimerValue = (value) => String(value).padStart(2, '0');
+  const formatTimerValue = (value) => String(value).padStart(2, '0');
 
-  document.querySelector('[data-days]').textContent = addTimerValue(days);
-  document.querySelector('[data-hours]').textContent = addTimerValue(hours);
-  document.querySelector('[data-minutes]').textContent = addTimerValue(minutes);
-  document.querySelector('[data-seconds]').textContent = addTimerValue(seconds);
+  document.querySelector('[data-days]').textContent = formatTimerValue(days);
+  document.querySelector('[data-hours]').textContent = formatTimerValue(hours);
+  document.querySelector('[data-minutes]').textContent = formatTimerValue(minutes);
+  document.querySelector('[data-seconds]').textContent = formatTimerValue(seconds);
 }
 
 function convertMs(ms) {
