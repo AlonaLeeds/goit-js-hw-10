@@ -39,7 +39,7 @@ startButton.addEventListener('click', () => {
   if (startButton.disabled === false) {
     updateCounter = setInterval(updateDisplay, 1000);
     startButton.disabled = true;
-    input.disabled = true;
+    input.readOnly = true;
   }
 });
 
